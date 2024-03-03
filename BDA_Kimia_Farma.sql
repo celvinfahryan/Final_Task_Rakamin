@@ -9,14 +9,16 @@ CASE
     WHEN p.price > 500000 THEN 0.30
       END AS persentase_gross_laba, 
 
-  p.price - (p.price * discount_percentage) as nett_sales, 
+p.price - (p.price * discount_percentage) as nett_sales, 
 
-  CASE
+CASE
     WHEN p.price > 50000 AND p.price <= 100000 THEN p.price * 0.15
     WHEN p.price > 100000 AND p.price <= 300000 THEN p.price * 0.20
     WHEN p.price > 300000 AND p.price <= 500000 THEN p.price * 0.25
     WHEN p.price > 500000 THEN p.price * 0.30
-      END AS nett_profit,ft.rating
+      END AS nett_profit,
+
+ft.rating
   
 FROM dataset_kimia_farma.kf_final_transaction AS ft
   
